@@ -16,7 +16,7 @@ export default {
 				v-for="(type, index) in pokemon.types"
 				:key="index"
 			>
-				{{ type.type.name }}{{ index < pokemon.types.length - 1 ? ", " : "" }}
+				{{ type.type.name }}
 			</span>
 		</p>
 		<p>Heigth: {{ pokemon.height }}</p>
