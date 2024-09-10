@@ -34,18 +34,14 @@ export default {
 		},
 
 		isPokemonFavorite(pokemonName) {
-			// Controlla se il Pokémon è nei preferiti
 			return this.favoritePokemons.includes(pokemonName);
 		},
 		toggleFavorite(pokemonName) {
-			// Aggiungi o rimuovi il Pokémon dai preferiti
 			if (this.isPokemonFavorite(pokemonName)) {
-				// Rimuovi dai preferiti
 				this.favoritePokemons = this.favoritePokemons.filter(
 					(favorite) => favorite !== pokemonName
 				);
 			} else {
-				// Aggiungi ai preferiti
 				this.favoritePokemons.push(pokemonName);
 			}
 		},
