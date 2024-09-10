@@ -65,7 +65,10 @@ export default {
 				<h2>Pokémon preferiti</h2>
 				<ul>
 					<li v-for="(favorite, index) in favoritePokemons" :key="index">
-						{{ favorite }}
+						<router-link
+							:to="{ name: 'PokemonDetails', params: { name: favorite } }"
+							>{{ favorite }}</router-link
+						>
 					</li>
 				</ul>
 			</div>
