@@ -13,6 +13,8 @@ export default {
 	data() {
 		return {
 			store,
+			favoritePokemons: [],
+			pokemon: {},
 		};
 	},
 
@@ -30,6 +32,23 @@ export default {
 					this.store.error = "Pokémon non trovato";
 				});
 		},
+
+		isPokemonFavorite(pokemonName) {
+			// Controlla se il Pokémon è nei preferiti
+			return this.favoritePokemons.includes(pokemonName);
+		},
+		toggleFavorite(pokemonName) {
+			// Aggiungi o rimuovi il Pokémon dai preferiti
+			if (this.isPokemonFavorite(pokemonName)) {
+				// Rimuovi dai preferiti
+				this.favoritePokemons = this.favoritePokemons.filter(
+					(favorite) => favorite !== pokemonName
+				);
+			} else {
+				// Aggiungi ai preferiti
+				this.favoritePokemons.push(pokemonName);
+			}
+		},
 	},
 };
 </script>
@@ -37,7 +56,24 @@ export default {
 <template>
 	<div class="container my-5">
 		<InputSearch @search="handleSearch" />
-		<PokemonDetails :pokemon="store.pokeList" />
+		<div class="d-flex">
+			<div>
+				<PokemonDetails
+					:pokemon="store.pokeList"
+					:isFavorite="isPokemonFavorite(store.pokeList.name)"
+					@toggle-favorite="toggleFavorite"
+				/>
+			</div>
+
+			<div class="d-flex flex-column">
+				<h2>Pokémon preferiti</h2>
+				<ul>
+					<li v-for="(favorite, index) in favoritePokemons" :key="index">
+						{{ favorite }}
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </template>
 
