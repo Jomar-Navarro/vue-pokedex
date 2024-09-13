@@ -52,8 +52,8 @@ export default {
 <template>
 	<div class="container my-5">
 		<InputSearch @search="handleSearch" />
-		<div class="d-flex">
-			<div>
+		<div>
+			<div id="details">
 				<PokemonDetails
 					:pokemon="store.pokeList"
 					:isFavorite="isPokemonFavorite(store.pokeList.name)"
@@ -61,7 +61,7 @@ export default {
 				/>
 			</div>
 
-			<div class="d-flex flex-column">
+			<!-- <div class="d-flex flex-column">
 				<h2>Pokémon preferiti</h2>
 				<ul>
 					<li v-for="(favorite, index) in favoritePokemons" :key="index">
@@ -71,7 +71,7 @@ export default {
 						>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </template>

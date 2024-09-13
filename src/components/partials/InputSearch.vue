@@ -20,16 +20,39 @@ export default {
 
 <template>
 	<form @submit.prevent="startSearch" class="d-flex justify-content-center">
-		<label for="pokemon" class="form-label me-3">Search a Pokémon: </label>
 		<input
 			v-model.trim="pokemonToSearch"
 			type="text"
 			id="pokemon"
-			class="d-flex justify-content-center"
+			class="input d-flex justify-content-center"
 			placeholder="Type to search a Pokémon..."
 		/>
-		<button type="submit">Cerca</button>
+		<button type="submit" class="btn">
+			<img class="poke" src="/img/Poke.jpg" alt="" />
+		</button>
 	</form>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.input {
+	width: 25%;
+	padding: 5px;
+	font-size: 16px;
+	border-width: 2px;
+	border-color: #000000;
+	background-color: #ffffff;
+	color: #000000;
+	border-style: outset;
+	border-radius: 50px;
+	box-shadow: 0px 0px 10px rgba(66, 66, 66, 0.75);
+	text-shadow: 0px 0px 10px rgba(66, 66, 66, 0.75);
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.poke {
+	width: 30px;
+}
+</style>
